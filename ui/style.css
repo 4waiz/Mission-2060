@@ -1,0 +1,39 @@
+:root{
+  --bg:#0b1321; --fg:#d8eeff; --neon:#00ffd5; --accent:#14f1ff;
+}
+*{box-sizing:border-box; user-select:none}
+body{margin:0;background:radial-gradient(1200px 700px at 30% -10%, rgba(0,255,213,.08), transparent), #0b1321; color:var(--fg); font:14px/1.3 Consolas, monospace;}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(20,241,255,.2);}
+.brand{color:var(--neon);font-weight:800;letter-spacing:2px}
+.meta{opacity:.8}
+
+main{display:grid;grid-template-columns:1.7fr .9fr;grid-template-rows:auto 200px;gap:16px;padding:16px;}
+#video{grid-column:1 / span 2}
+#video .main{position:relative;border:2px solid var(--neon);border-radius:12px;overflow:hidden;background:#081220}
+#video .main img{display:block;width:100%;height:520px;object-fit:contain;background:#000}
+#video .main .hud{position:absolute;left:12px;top:12px;background:rgba(8,18,32,.55);border:1px solid rgba(20,241,255,.5);padding:6px 10px;border-radius:6px;color:var(--neon);font-size:12px}
+#video .thumbs{display:flex;gap:10px;margin-top:10px}
+#video .thumb{position:relative;flex:1;border:1px solid rgba(255,255,255,.15);border-radius:8px;overflow:hidden;background:#06101c}
+#video .thumb img{width:100%;height:180px;object-fit:cover}
+#video .thumb span{position:absolute;left:8px;top:8px;background:rgba(8,18,32,.6);border:1px solid rgba(20,241,255,.4);padding:2px 6px;border-radius:4px;color:var(--neon);font-size:11px}
+
+#controls{display:flex;gap:24px}
+.keys .row{display:flex;gap:10px;margin-bottom:10px}
+.key, .actions button{
+  border:2px solid var(--accent); background:rgba(10,25,40,.8); color:var(--accent);
+  padding:12px 16px; border-radius:12px; font-weight:800; letter-spacing:1px; cursor:pointer;
+  transition:all .08s ease;
+}
+.key{width:64px;height:64px;display:inline-flex;align-items:center;justify-content:center}
+.key.on, .actions button:active{background:var(--accent); color:#0b1321; box-shadow:0 0 14px var(--accent);}
+.actions{display:grid;grid-template-columns:repeat(2, 1fr);gap:10px;width:420px}
+
+#dials{display:flex;gap:16px}
+#dials .dial{
+  flex:1; height:120px; border:2px solid rgba(0,255,213,.6); border-radius:12px; display:flex; align-items:center; justify-content:center;
+  background:
+    conic-gradient(from 0deg, rgba(0,255,213,.2), rgba(20,241,255,.15), rgba(0,255,213,.2)),
+    radial-gradient(400px 160px at 50% 0%, rgba(20,241,255,.08), transparent);
+  animation:spin 6s linear infinite;
+}
+@keyframes spin { from{filter:hue-rotate(0deg)} to{filter:hue-rotate(360deg)} }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MISSION2060 :: Command Console</title>
+<link rel="stylesheet" href="/ui/style.css" />
+</head>
+<body>
+<header>
+  <div class="brand">MISSION2060</div>
+  <div class="meta">User: {{ user }} &nbsp;•&nbsp; Host: {{ host }}</div>
+</header>
+
+<main>
+  <section id="video">
+    <div class="main">
+      <img id="mainFeed" src="/stream/{{ primary }}" alt="main">
+      <div class="hud" id="overlayMain"></div>
+    </div>
+    <div class="thumbs">
+      {% for s in sources %}
+      <div class="thumb"><img data-source="{{ s }}" src="/stream/{{ s }}"><span>{{ s }}</span></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="controls">
+    <div class="keys">
+      <div class="row"><button data-k="81" class="key">Q</button><button data-k="87" class="key">W</button><button data-k="69" class="key">E</button></div>
+      <div class="row"><button data-k="65" class="key">A</button><button data-k="83" class="key">S</button><button data-k="68" class="key">D</button></div>
+    </div>
+
+    <div class="actions">
+      <button data-a="stand">Stand (1)</button>
+      <button data-a="sit">Sit (2)</button>
+      <button data-a="estop_cut">E-Stop CUT (K)</button>
+      <button data-a="estop_allow">E-Stop ALLOW (L)</button>
+      <button data-a="undock">Undock (U)</button>
+      <button data-a="dock">Dock (P)</button>
+      <button data-a="release_lease">Release Lease (R)</button>
+      <button data-a="reacquire_lease">Re-acquire Lease (T)</button>
+    </div>
+  </section>
+
+  <section id="dials">
+    <div class="dial">SCANNER ONLINE</div>
+    <div class="dial">FUSION CORE</div>
+  </section>
+</main>
+
+<script src="/ui/app.js"></script>
+</body>
+</html>

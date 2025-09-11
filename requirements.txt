@@ -1,0 +1,6 @@
+bosdyn-client>=5.0
+bosdyn-api>=5.0
+opencv-python>=4.9
+ultralytics>=8.0
+python-dotenv>=1.0
+numpy>=1.24
